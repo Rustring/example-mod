@@ -95,6 +95,6 @@ class $modify(MyMenuLayer, MenuLayer) {
 	 * return type `void` and taking a `CCObject*`.
 	*/
 	void onMyButton(CCObject*) {
-		FLAlertLayer::create("Geode", "Hello from my custom mod!", "OK")->show();
+		FLAlertLayer::create("Geode", "Hello from my custom mod! By Rustring <3", "Ok! Good :D")->show();
 	}
 };
