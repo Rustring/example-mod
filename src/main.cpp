@@ -4,7 +4,7 @@
 #include <Geode/modify/GameManager.hpp>
 #include <Geode/modify/CCTextInputNode.hpp>
 
-using namespace geode::prelude
+using namespace geode::prelude;
 
    class $modify(cocos2d::CCDrawNode)  {    // This enables a solid wave trail, credits to Prism Menu for the code.
        bool drawPolygon(cocos2d::CCPoint *p0, unsigned int p1, const cocos2d::ccColor4F &p2, float p3, const cocos2d::ccColor4F &p4) {
