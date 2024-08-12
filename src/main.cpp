@@ -4,33 +4,7 @@
 #include <Geode/modify/GameManager.hpp>
 #include <Geode/modify/CCTextInputNode.hpp>
 
-using namespace geode::prelude;
-
-   class $modify(MyMenuLayer, MenuLayer) {    // This right here creates a button on the main menu, showing the mod is active
-	bool init() 
-		if (!MenuLayer::init()) {
-			return false;
-		}
-
-		log::debug("Hello from my MenuLayer::init hook! This layer has {} children.", this->getChildrenCount());
-		auto myButton = CCMenuItemSpriteExtra::create(
-			CCSprite::createWithSpriteFrameName("GJ_likeBtn_001.png"),
-			this,
-			menu_selector(MyMenuLayer::onMyButton)
-		);
-
-		auto menu = this->getChildByID("bottom-menu");
-		menu->addChild(myButton);
-		myButton->setID("my-button"_spr);
-		menu->updateLayout();
-		return true;
-	}
-
-	void onMyButton(CCObject*) {
-		FLAlertLayer::create("Geode", "Rustring Example Mod is active.", "Ok")->show();
-	}
-    };
-
+using namespace geode::prelude
 
    class $modify(cocos2d::CCDrawNode)  {    // This enables a solid wave trail, credits to Prism Menu for the code.
        bool drawPolygon(cocos2d::CCPoint *p0, unsigned int p1, const cocos2d::ccColor4F &p2, float p3, const cocos2d::ccColor4F &p4) {
@@ -43,24 +17,3 @@ using namespace geode::prelude;
        }
    };
 
-
-    class $modify(GameManager) {    // Icon Hack
-        static void onModify(auto& self) {
-             if (GameManager::isIconUnlocked(_id, _type)) 
-		return true;
-             if (_id <= 0) 
-		return false;
-        }
-
-        bool isColorUnlocked(int key, UnlockType type) {
-            if (GameManager::isColorUnlocked(key, type))
-                return true;
-        }
-
-        bool isIconUnlocked(int key, IconType type) {
-            if (GameManager::isIconUnlocked(key, type))
-                return true;
-
-            return config::get<bool>("bypass.unlockicons", false);
-        }
-    };
