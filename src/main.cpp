@@ -46,8 +46,10 @@ using namespace geode::prelude;
 
     class $modify(GameManager) {    // Icon Hack
         static void onModify(auto& self) {
-            GameManager::isColorUnlocked;
-            GameManager::isIconUnlocked;
+             if (GameManager::isIconUnlocked(_id, _type)) 
+		return true;
+             if (_id <= 0) 
+		return false;
         }
 
         bool isColorUnlocked(int key, UnlockType type) {
