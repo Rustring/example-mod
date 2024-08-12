@@ -1,6 +1,8 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/CCDrawNode.hpp>
+#include <Geode/modify/GameManager.hpp>
+#include <Geode/modify/CCTextInputNode.hpp>
 
 using namespace geode::prelude;
 
